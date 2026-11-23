@@ -1,0 +1,63 @@
+# KBS_STAGER Table 6, HAI / STAGER.
+model:
+  name: STAGER
+stager:
+  window_size: 15
+  stride: 1
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.0001
+  early_stopping_patience: 10
+  validation_fraction: 0.2
+  ewm_alpha: 0.8
+  adj_func: sigmoid
+  gnn_type: gat
+  gnn_layers: 1
+  gnn_heads: 4
+  gnn_dropout: 0.1
+  gnn_hidden_dim: null
+  node_dim: 16
+  conditioning_type: film
+  film_pre_norm_type: null
+  film_post_norm_type: ln
+  feature_encoder_type: multi_scale
+  ms_windows: [5, 10, 15]
+  tag_mixing: true
+  aux_target: global
+  temporal_type: dag
+  temporal_pool: mean
+  aux_euclid_weight: 0.2
+  aux_cos_weight: 0.0
+  aux_ortho_weight: 0.0
+  aux_cls_weight: 0.2
+  best_state_policy: snapshot
+  evaluation_fpr: 0.002
+  aux_classifier_dropout: 0.0
+  aux_classifier_hidden: null
+  aux_classifier_layers: 2
+  aux_cls_use_norm: false
+  aux_norm_eps: 1.0e-08
+  dag_use_bn: false
+  ema_alpha: 0.001
+  feature_residual: false
+  film_hidden_ratio: 2.0
+  global_mlp_hidden: null
+  global_mlp_init: xavier_uniform
+  global_mlp_layers: 2
+  global_mlp_out_norm: null
+  global_seed_dim: null
+  lr_aux_classifier: null
+  lr_global: null
+  nonmix_method: per_linear
+  num_workers: 0
+  process_to_tag: null
+  shift: 2
+  tgnn_hidden_multiplier: 2
+  tgnn_layers: 2
+  use_ema_in_forward: false
+  feature_edge_layout: per_sample
+dataset:
+  logical_id: hai
+  prepared_arrays_required: true
+  bundled: false
+seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]

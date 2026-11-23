@@ -1,0 +1,50 @@
+# KBS_STAGER Table 6, WADI / AnomalyTrans.
+run:
+  baseline: anomaly_transformer
+  dataset: wadi
+  seeds: [2818902611, 3031544405, 3894207379, 1432196993, 591222738]
+baseline: anomaly_transformer
+dataset:
+  logical_id: wadi
+  schema: wadi
+  data_included: false
+  expected_period_seconds: 10
+preprocessing:
+  input_stage: externally_prepared_frame
+  feature_count: 123
+  feature_order: manifest_order
+  normalization: train_minmax
+  constant_feature_value: 0.0
+  test_clipping: false
+  ewm:
+    alpha: 0.8
+    adjust: true
+    reset_between_splits: true
+  missing_values: error
+window:
+  size: 60
+  stride: 1
+  score_anchor: next_point
+model:
+  input_dim: 123
+  output_dim: 123
+  d_model: 512
+  n_heads: 8
+  e_layers: 3
+  d_ff: 512
+  dropout: 0.0
+  activation: gelu
+  output_attention: true
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  num_epochs: 50
+  patience: 10
+  validation_fraction: 0.2
+  optimizer: AdamW
+  association_weight: 0.1
+scoring:
+  temperature: 50.0
+evaluation:
+  method: label_aware_fpr
+  fpr: 0.002

@@ -1,0 +1,30 @@
+# KBS_STAGER Table 6, HAI / DeepSVDD.
+run:
+  baseline: deep_svdd
+  dataset: hai
+  seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]
+model:
+  objective: soft-boundary
+  nu: 0.1
+  rep_dim: 32
+data:
+  window_size: 15
+  stride: 1
+  predict_size: 1
+preprocessing:
+  normalize: true
+  ewm_alpha: 0.8
+pretraining:
+  enabled: true
+  learning_rate: 0.0001
+  num_epochs: 50
+training:
+  optimizer: AdamW
+  learning_rate: 0.0001
+  num_epochs: 50
+  learning_rate_milestones: []
+  batch_size: 32
+  weight_decay: 1.0e-05
+  warm_up_epochs: 10
+evaluation:
+  fpr: 0.002

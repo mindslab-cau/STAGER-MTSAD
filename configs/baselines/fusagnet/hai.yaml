@@ -1,0 +1,49 @@
+# KBS_STAGER Table 6, HAI / FuSAGNet.
+run:
+  baseline: fusagnet
+  dataset: hai
+  seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]
+false_positive_rate: 0.002
+layout:
+  feature_order: [P1_B2004, P1_B2016, P1_B3004, P1_B3005, P1_B4002, P1_B4005, P1_B400B, P1_B4022, P1_FCV01D, P1_FCV01Z,
+    P1_FCV02D, P1_FCV02Z, P1_FCV03D, P1_FCV03Z, P1_FT01, P1_FT01Z, P1_FT02, P1_FT02Z, P1_FT03, P1_FT03Z, P1_LCV01D,
+    P1_LCV01Z, P1_LIT01, P1_PCV01D, P1_PCV01Z, P1_PCV02D, P1_PCV02Z, P1_PIT01, P1_PIT01_HH, P1_PIT02, P1_PP01AD,
+    P1_PP01AR, P1_PP01BD, P1_PP01BR, P1_PP02D, P1_PP02R, P1_PP04, P1_PP04SP, P1_SOL01D, P1_SOL03D, P1_STSP, P1_TIT01,
+    P1_TIT02, P1_TIT03, P2_24Vdc, P2_ATSW_Lamp, P2_AutoGO, P2_AutoSD, P2_Emerg, P2_MASW, P2_MASW_Lamp, P2_ManualGO,
+    P2_ManualSD, P2_OnOff, P2_RTR, P2_SCO, P2_SCST, P2_SIT01, P2_TripEx, P2_VIBTR01, P2_VIBTR02, P2_VIBTR03, P2_VIBTR04,
+    P2_VT01, P2_VTR01, P2_VTR02, P2_VTR03, P2_VTR04, P3_FIT01, P3_LCP01D, P3_LCV01D, P3_LH01, P3_LIT01, P3_LL01,
+    P3_PIT01, P4_HT_FD, P4_HT_PO, P4_HT_PS, P4_LD, P4_ST_FD, P4_ST_GOV, P4_ST_LD, P4_ST_PO, P4_ST_PS, P4_ST_PT01,
+    P4_ST_TT01]
+  process_groups:
+    - name: P1
+      feature_indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+        25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
+    - name: P2
+      feature_indices: [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65,
+        66, 67]
+    - name: P3
+      feature_indices: [68, 69, 70, 71, 72, 73, 74]
+    - name: P4
+      feature_indices: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85]
+model:
+  window_size: 16
+  embedding_dim: 32
+  output_hidden_dim: 32
+  output_layers: 1
+  topk: 15
+  latent_size: 32
+  autoencoder_layers: 2
+  alpha: 0.5
+  beta: 1.0
+  process_rnn_layers: 3
+  dropout: 0.2
+  edge_set_count: 1
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  epochs: 50
+  patience: 10
+  validation_fraction: 0.2
+  noise_level: 0.1
+  optimizer: adamw
+  deep_snapshot_best_state: true

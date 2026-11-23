@@ -1,0 +1,4 @@
+base_config: swat.yaml
+parameters:
+  model.latent_dim:
+    values: [32, 40]

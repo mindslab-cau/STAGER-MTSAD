@@ -1,0 +1,31 @@
+# KBS_STAGER Table 6, HAI / TSMixer.
+run:
+  baseline: tsmixer
+  dataset: hai
+  seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]
+model:
+  input_dim: 86
+  pred_len: 1
+  target_slice: null
+  norm_type: L
+  activation: relu
+  n_block: 2
+  dropout: 0.2
+  ff_dim: 16
+data:
+  window_size: 15
+  stride: 1
+  predict_size: 1
+preprocessing:
+  normalize: true
+  ewm_alpha: 0.8
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  num_epochs: 50
+  patience: 10
+  best_state_policy: deep_snapshot
+  validation_fraction: 0.2
+  optimizer: AdamW
+evaluation:
+  fpr: 0.002

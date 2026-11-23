@@ -1,0 +1,13 @@
+# Example grid: 3 learning rates x 5 node dimensions x 5 auxiliary weights
+# x 5 common seeds = 375 training runs. Review with --plan before launching.
+base_config: swat.yaml
+seed_iter: 5
+parameters:
+  stager.learning_rate:
+    values: [0.00003, 0.0001, 0.0003]
+  stager.node_dim:
+    values: [8, 12, 16, 24, 32]
+  stager.aux_euclid_weight:
+    values: [0.0, 0.1, 0.2, 0.3, 0.5]
+  stager.ms_windows:
+    value: [5, 10, 20]

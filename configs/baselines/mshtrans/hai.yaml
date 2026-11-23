@@ -1,0 +1,25 @@
+# KBS_STAGER Table 6, HAI / MSHTrans.
+run:
+  baseline: mshtrans
+  dataset: hai
+  seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]
+model:
+  window_size: 15
+  pool_sizes: [2]
+  hyperedge_counts: [50, 30]
+  moving_average_windows: [2, 3, 4]
+  head_count: 3
+  inner_size: 5
+  d_model: 32
+  topk: 5
+  update_rate: 0.3
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.0001
+  patience: 10
+  validation_fraction: 0.2
+  num_workers: 1
+train_stride: 10
+test_stride: 1
+false_positive_rate: 0.002

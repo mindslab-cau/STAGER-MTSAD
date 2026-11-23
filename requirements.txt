@@ -1,0 +1,7 @@
+ray==2.33.0
+faster-eTaPR==0.1.2
+torch-geometric==2.6.1
+einops==0.8.0
+psutil==6.0.0
+-e ./third_party/etapr
+-e .

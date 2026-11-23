@@ -1,0 +1,20 @@
+# KBS_STAGER Table 6, HAI / OCSVM.
+run:
+  baseline: ocsvm
+  dataset: hai
+  seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]
+model: ocsvm
+model_params:
+  nu: 0.1
+  kernel: rbf
+  gamma: auto
+  contamination: 0.001
+preprocessing:
+  normalization: train_minmax
+  ewm_alpha: 0.8
+  window_size: 1
+evaluation:
+  protocol: evaluate_ensemble_best_modified
+  fpr: 0.002
+  label_aware: true
+  require_etapr: true

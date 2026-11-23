@@ -1,0 +1,1317 @@
+{
+  "manuscript": {
+    "file": "KBS_STAGER.pdf",
+    "sha256": "61442af5eaf67a51aad55d775504f3bbd4f543cd3685bdfb1c7940cb85346b39",
+    "table": 6
+  },
+  "runs": [
+    {
+      "preset": "baselines/knn/swat.yaml",
+      "dataset": "swat",
+      "method": "knn",
+      "run_ids": [
+        "run_20260727_131741",
+        "run_20260727_131829",
+        "run_20260727_131917",
+        "run_20260727_132004",
+        "run_20260727_132051"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "results.json",
+          "sha256": "b6ed6f857c8aef190683854d0c7c7fe5647990c2a33590a96713af042efda7e7"
+        },
+        {
+          "kind": "legacy_setup_source",
+          "file": "knn_swat.py",
+          "sha256": "44efe840eda9a5828bca2e03bef40bed3afcba84e1ba3966031eafe63c1d825f"
+        }
+      ],
+      "notes": [
+        "Original seeds were not recorded in the recovered runs. The preset supplies five deterministic replay seeds.",
+        "The selected PyOD estimator is deterministic for fixed input and hyperparameters.",
+        "The original CPU worker count was machine-specific and absent from the results. The preset uses the package default."
+      ],
+      "selection_id": "classical_swat_knn_main",
+      "selected_scoring": "pointwise scalar score",
+      "original_seeds": null,
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preset_sha256": "e2315d4bc6cc5e9ddf17013b2d3fb32e0e1a6230eccd089553e64dd39026e457"
+    },
+    {
+      "preset": "baselines/ocsvm/swat.yaml",
+      "dataset": "swat",
+      "method": "ocsvm",
+      "run_ids": [
+        "repeat_01",
+        "repeat_02",
+        "repeat_03",
+        "repeat_04",
+        "repeat_05"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "results.json",
+          "sha256": "2a2e3af2e3b9f1317c98c0dfe04e3e7b97916409ef91a766ff877628ef8e9b12"
+        },
+        {
+          "kind": "legacy_setup_source",
+          "file": "ocsvm_swat.py",
+          "sha256": "e82924dad92108bf0fb46477dc2999617a51c4f7a5044c146af569ab7b0509c8"
+        }
+      ],
+      "notes": [
+        "Original seeds were not recorded in the recovered runs. The preset supplies five deterministic replay seeds.",
+        "The selected PyOD estimator is deterministic for fixed input and hyperparameters."
+      ],
+      "selection_id": "classical_swat_ocsvm_main",
+      "selected_scoring": "pointwise scalar score",
+      "original_seeds": null,
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preset_sha256": "72ed6b84c9a91ac5d034c7902515d2765aff4434cedb7533897058148a9b947a"
+    },
+    {
+      "preset": "baselines/deep_svdd/swat.yaml",
+      "dataset": "swat",
+      "method": "deep_svdd",
+      "run_ids": [
+        "run_0_seed42",
+        "run_1_seed43",
+        "run_2_seed44",
+        "run_3_seed45",
+        "run_4_seed46"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "results.json",
+          "sha256": "8b6a6c67daf95993919e4a8b88c8cafb90bc9dd7675dcad7c353424026854019"
+        },
+        {
+          "kind": "selected_experiment_config",
+          "file": "config.json",
+          "sha256": "4ade9e4727cd29ca4c14e5c7b2106176ccc8979e1a912c02020b75c7a866bf1d"
+        }
+      ],
+      "notes": [],
+      "selection_id": "classical_swat_deepsvdd_main",
+      "selected_scoring": "stride1 · center distance → next-point",
+      "original_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "table_std_ddof": 0,
+      "preset_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "preset_sha256": "debf2b7f5d104ae037dae5da21fa8cea4d8aa7e554fba85ec7b5636f11954bda"
+    },
+    {
+      "preset": "baselines/usad/swat.yaml",
+      "dataset": "swat",
+      "method": "usad",
+      "run_ids": [
+        "seed-3809632705",
+        "seed-2367899585",
+        "seed-1927285282",
+        "seed-1901393921",
+        "seed-2995911408"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "80920f27575fdc209394c712627760fdf0eee0059cde9532824c9e88b9e177af"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "8f7cf65fb9d1ed198c51639020ab42dcd561c2e3952cb8cd162a2cc6ef3ca84a"
+        }
+      ],
+      "notes": [],
+      "selection_id": "swat_usad_w12_d40_paper_wdim",
+      "selected_scoring": "stride1 · decoder1 window-MSE → next-point",
+      "original_seeds": [
+        3809632705,
+        2367899585,
+        1927285282,
+        1901393921,
+        2995911408
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        3809632705,
+        2367899585,
+        1927285282,
+        1901393921,
+        2995911408
+      ],
+      "preset_sha256": "f79dd6d3a98f193b542b06aa95b22ed36b750778dac70bb186ef7d87a11e2206"
+    },
+    {
+      "preset": "baselines/tsmixer/swat.yaml",
+      "dataset": "swat",
+      "method": "tsmixer",
+      "run_ids": [
+        "260205_101035_woven-sweep-1",
+        "260205_101417_solar-sweep-2",
+        "260205_101804_stilted-sweep-3",
+        "260205_102150_vivid-sweep-4",
+        "260205_102536_solar-sweep-5"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "evaluation_results.json",
+          "sha256": "4e0dca6fbb1e761cf55d624630ac8a4bf4d8aaebb9fcf0b16b258c77c42812bb"
+        },
+        {
+          "kind": "selected_legacy_run_config",
+          "file": "config_used.yaml",
+          "sha256": "b7e4d10ac05b3d58c552e6b1a80f47299eb5b66fbfd60b238922c550a88049e5"
+        }
+      ],
+      "notes": [],
+      "selection_id": "cikm_tsmixer_swat_15",
+      "selected_scoring": "stride1 · forecast squared error → next-point",
+      "original_seeds": [
+        3161534991,
+        579641255,
+        2485349240,
+        931421446,
+        936013479
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        3161534991,
+        579641255,
+        2485349240,
+        931421446,
+        936013479
+      ],
+      "preset_sha256": "097456f73e90d00e9cf2f52412eb5abd0c8cabff9438c8af891af7447ea3a798"
+    },
+    {
+      "preset": "baselines/anomaly_transformer/swat.yaml",
+      "dataset": "swat",
+      "method": "anomaly_transformer",
+      "run_ids": [
+        "260209_161527_floral-sweep-6",
+        "260209_162224_polished-sweep-7",
+        "260209_162911_vital-sweep-8",
+        "260209_163659_warm-sweep-9",
+        "260209_164448_silvery-sweep-10"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "evaluation_results.json",
+          "sha256": "1e2d00debdbedad6b6a41413e412b21fd88d040604d8982b4362b3c24c6da305"
+        },
+        {
+          "kind": "selected_legacy_run_config",
+          "file": "config_used.yaml",
+          "sha256": "f4c62d7f80743263e7ac51d02df85099f29897650aa8ce24166e0cd608ce361c"
+        }
+      ],
+      "notes": [],
+      "selection_id": "at_swat_current",
+      "selected_scoring": "stride1_window_mean",
+      "original_seeds": [
+        1221908562,
+        1475169315,
+        3852560921,
+        2175173874,
+        1808337567
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1221908562,
+        1475169315,
+        3852560921,
+        2175173874,
+        1808337567
+      ],
+      "preset_sha256": "196fbb76d247a95b239d25717b159d6677f690ac5f48f5e419fadb628e08384b"
+    },
+    {
+      "preset": "baselines/fusagnet/swat.yaml",
+      "dataset": "swat",
+      "method": "fusagnet",
+      "run_ids": [
+        "seed-3809632705",
+        "seed-2367899585",
+        "seed-1927285282",
+        "seed-1901393921",
+        "seed-2995911408"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "c6966864c85749d9444a5b0948ce72faa4bc3226761c23dedaa7e7b67fff1df5"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "526fbc55a0b810d99303f3d0f465397b09d261b784ac3e1814a2dd5dc6adde9c"
+        }
+      ],
+      "notes": [],
+      "selection_id": "swat_fusagnet_w16_d16_a0p1_paper_loss",
+      "selected_scoring": "stride1 · forecast absolute error → next-point",
+      "original_seeds": [
+        3809632705,
+        2367899585,
+        1927285282,
+        1901393921,
+        2995911408
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        3809632705,
+        2367899585,
+        1927285282,
+        1901393921,
+        2995911408
+      ],
+      "preset_sha256": "92e1d7696746f3476757e8c3e686419099f787dc01b82cadbbf55e8357d28ed6"
+    },
+    {
+      "preset": "baselines/mtscid/swat.yaml",
+      "dataset": "swat",
+      "method": "mtscid",
+      "run_ids": [
+        "run_01",
+        "run_02",
+        "run_03",
+        "run_04",
+        "run_05"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "evaluation_results.json",
+          "sha256": "9d654989b53095ea122bdc8f4f9a64c9d5152cad8fa4c8b09e27a53a50b37e5b"
+        },
+        {
+          "kind": "legacy_checkpoint_shape_metadata",
+          "file": "model_state_dict.pth",
+          "sha256": "2dbe20a9f2b8e622388930a9a78200ce3220c45324178f7d70974f1680ad93a8"
+        },
+        {
+          "kind": "legacy_checkpoint_shape_metadata",
+          "file": "model_state_dict.pth",
+          "sha256": "c0c772a63e2190fd15802d8bedd41e76e17b48da65485370abe200c8ee7475f0"
+        },
+        {
+          "kind": "legacy_checkpoint_shape_metadata",
+          "file": "model_state_dict.pth",
+          "sha256": "8ade03d42cec6cc4b1a84a455f13eadce761f7757091472b9b2cbea9def38826"
+        },
+        {
+          "kind": "legacy_checkpoint_shape_metadata",
+          "file": "model_state_dict.pth",
+          "sha256": "8e8fdbf19b023bf70e1aa1ff612d2b3f8da12551094b6e3a8b41a67f62cc0a69"
+        },
+        {
+          "kind": "legacy_checkpoint_shape_metadata",
+          "file": "model_state_dict.pth",
+          "sha256": "110119deef187617bd97cb27a690bf82657632e37f7d6b32947c9ce19010dde4"
+        },
+        {
+          "kind": "legacy_checkpoint_model_config",
+          "file": "run_benchmark_inference.py",
+          "sha256": "2381fe3de4f281e73917ac7592f9223d8942b3fcf8bc8ae167a03508d408fe83"
+        }
+      ],
+      "notes": [
+        "Original seeds were not recorded in the recovered runs. The preset supplies five deterministic replay seeds.",
+        "The selected archive confirms W100/nonoverlapping flatten on test. All five checkpoint weight shapes corroborate width 51 and patch widths 10 and 20. Unsaved training fields use the retained preset."
+      ],
+      "selection_id": "mtscid_swat_current",
+      "selected_scoring": "stride100_flatten",
+      "original_seeds": null,
+      "table_std_ddof": 0,
+      "preset_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preset_sha256": "5162be82a54f6f5dec52165533b0d6fb4e7bf4143e0aa8092c85f0da7565ca10"
+    },
+    {
+      "preset": "baselines/mshtrans/swat.yaml",
+      "dataset": "swat",
+      "method": "mshtrans",
+      "run_ids": [
+        "run_01",
+        "run_02",
+        "run_03",
+        "run_04",
+        "run_05"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "evaluation_results.json",
+          "sha256": "25257a182b946530f73608b2be785177546a3a4cb7aac9388b969677f8060ee7"
+        },
+        {
+          "kind": "selected_legacy_run_config",
+          "file": "params.yaml",
+          "sha256": "b2f7bed03e1e5132c413102fbc63456faf1c42c12a9b736cf9175a114550def3"
+        }
+      ],
+      "notes": [
+        "The retained implementation uses the original fixed moving-average windows [4, 8, 12]."
+      ],
+      "selection_id": "mshtrans_swat_current",
+      "selected_scoring": "stride1_last",
+      "original_seeds": [
+        3314560584,
+        4063012538,
+        2971554668,
+        3358357434,
+        3533973654
+      ],
+      "table_std_ddof": 0,
+      "preset_seeds": [
+        3314560584,
+        4063012538,
+        2971554668,
+        3358357434,
+        3533973654
+      ],
+      "preset_sha256": "0b5297e5bf9f77f3b13c9586bc449711e7adb991d7cb6951bb8707f798911203"
+    },
+    {
+      "preset": "stager/swat.yaml",
+      "dataset": "swat",
+      "method": "stager",
+      "run_ids": [
+        "260201_204626_sleek-sweep-8",
+        "260201_215124_misty-sweep-16",
+        "260201_225512_amber-sweep-24",
+        "260202_000004_ruby-sweep-32",
+        "260202_010501_likely-sweep-40"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_legacy_run_config",
+          "file": "config_used.yaml",
+          "sha256": "406013dea2099d51f1b47d6b4e159e484d87650920099dc49a33a96e01b77863"
+        }
+      ],
+      "notes": [
+        "The paper supplies the multi-scale windows and temporal-layer count omitted from the archived YAML."
+      ],
+      "original_seeds": [
+        3974762829,
+        1165657832,
+        3936358673,
+        3654617130,
+        4023618807
+      ],
+      "selected_scoring": "next-point squared forecast error",
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        3974762829,
+        1165657832,
+        3936358673,
+        3654617130,
+        4023618807
+      ],
+      "preset_sha256": "b90758868171203b3bced38f7e0cf5f2dba720581f89d60e1bf386f4ff448f3d"
+    },
+    {
+      "preset": "baselines/knn/wadi.yaml",
+      "dataset": "wadi",
+      "method": "knn",
+      "run_ids": [
+        "run_20260727_132139",
+        "run_20260727_132334",
+        "run_20260727_132534",
+        "run_20260727_132731",
+        "run_20260727_132927"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "results.json",
+          "sha256": "99538e12b5a9be838ca58718848707387a5e8d7ff58b91ae011abc684ee70b72"
+        },
+        {
+          "kind": "legacy_setup_source",
+          "file": "knn_wadi.py",
+          "sha256": "a86ea128f33bf3ce6bf20bfcf4db05e3a9b8a96ff4985617a589b338a24aa243"
+        }
+      ],
+      "notes": [
+        "Original seeds were not recorded in the recovered runs. The preset supplies five deterministic replay seeds.",
+        "The selected PyOD estimator is deterministic for fixed input and hyperparameters.",
+        "The original CPU worker count was machine-specific and absent from the results. The preset uses the package default."
+      ],
+      "selection_id": "classical_wadi_knn_main",
+      "selected_scoring": "pointwise scalar score",
+      "original_seeds": null,
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preset_sha256": "3439fc02a61841926751951ed6060def2985e0d9df13ba3e6b3c7a8a2ff11de7"
+    },
+    {
+      "preset": "baselines/ocsvm/wadi.yaml",
+      "dataset": "wadi",
+      "method": "ocsvm",
+      "run_ids": [
+        "repeat_01",
+        "repeat_02",
+        "repeat_03",
+        "repeat_04",
+        "repeat_05"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "results.json",
+          "sha256": "e6e7bb0d9792f6c64023916da56f4ca849428d5a1cd092634f356bf3daeae507"
+        },
+        {
+          "kind": "legacy_setup_source",
+          "file": "ocsvm_wadi.py",
+          "sha256": "1c96931df6dc12b0d9a2b0e8c8b1ad791c1f750d2298733f5441242047b02294"
+        }
+      ],
+      "notes": [
+        "Original seeds were not recorded in the recovered runs. The preset supplies five deterministic replay seeds.",
+        "The selected PyOD estimator is deterministic for fixed input and hyperparameters."
+      ],
+      "selection_id": "classical_wadi_ocsvm_main",
+      "selected_scoring": "pointwise scalar score",
+      "original_seeds": null,
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preset_sha256": "54e519dfa448ac8b275eff2d868edc81eec526f558db42be5c6b9fef407bcf64"
+    },
+    {
+      "preset": "baselines/deep_svdd/wadi.yaml",
+      "dataset": "wadi",
+      "method": "deep_svdd",
+      "run_ids": [
+        "run_0_seed42",
+        "run_1_seed43",
+        "run_2_seed44",
+        "run_3_seed45",
+        "run_4_seed46"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "results.json",
+          "sha256": "41708582adefa4a5762a639e4a60d79ced95c4cd97bdb40e1fb1cf53caa1ebb8"
+        },
+        {
+          "kind": "selected_experiment_config",
+          "file": "config.json",
+          "sha256": "76e3b015efbb7142d03549801b770a1c821d218a22ec667ed20d9f569a109c4e"
+        }
+      ],
+      "notes": [],
+      "selection_id": "classical_wadi_deepsvdd_main",
+      "selected_scoring": "stride1 · center distance → next-point",
+      "original_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "table_std_ddof": 0,
+      "preset_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "preset_sha256": "e01129acf9a9cbd80118b347c3fa5c3d4490384130f073febe0bedf0c120fcb3"
+    },
+    {
+      "preset": "baselines/usad/wadi.yaml",
+      "dataset": "wadi",
+      "method": "usad",
+      "run_ids": [
+        "seed-2818902611",
+        "seed-3031544405",
+        "seed-3894207379",
+        "seed-1432196993",
+        "seed-591222738"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "4c35b5961e557a9c6bf0a0e3853febca26872c7bbf8392dcfb33606706c9c42e"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "9eb78cc3c159f4873002b5026443d05cc2441d787886dc3fa1e027f078c60a69"
+        }
+      ],
+      "notes": [],
+      "selection_id": "wadi_usad_w10_d100_paper_wdim",
+      "selected_scoring": "stride1 · decoder1 window-MSE → next-point",
+      "original_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "preset_sha256": "4f4bd6558f6a14de1e38fe7bbc7aa16fd7f8e6dd2c42a2864ae95285adc04019"
+    },
+    {
+      "preset": "baselines/tsmixer/wadi.yaml",
+      "dataset": "wadi",
+      "method": "tsmixer",
+      "run_ids": [
+        "seed-2818902611",
+        "seed-3031544405",
+        "seed-3894207379",
+        "seed-1432196993",
+        "seed-591222738"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "c4fc486bbbc2405ff26f3e76e7513e2ebb8db818da3de3cea68f23a631daca72"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "d04a8b5eb93fd3e28dd1e02a8edb97bfdb37f8fd55881ce1d416eaef9b8f08ae"
+        }
+      ],
+      "notes": [],
+      "selection_id": "wadi_tsmixer_w300_ff16_32_v2_20261117_model-ff_dim-1",
+      "selected_scoring": "stride1 · forecast squared error → next-point",
+      "original_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "preset_sha256": "11d90018e7cefd28f95d1eec13025033307d56bfceed6855136d44446bff3a3f"
+    },
+    {
+      "preset": "baselines/anomaly_transformer/wadi.yaml",
+      "dataset": "wadi",
+      "method": "anomaly_transformer",
+      "run_ids": [
+        "seed-2818902611",
+        "seed-3031544405",
+        "seed-3894207379",
+        "seed-1432196993",
+        "seed-591222738"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "8d41b9c8e03f9c88779484c02f1643c3efc9a9f8d8359f0993e0d86d13ae0e2a"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "9a32e6f944e9c6af2208b42ed5ceede52b144502a61825695cb161ffae0f5a8c"
+        }
+      ],
+      "notes": [
+        "The selected stride-one window-mean score path is written here. The original run also emitted separate comparison scores."
+      ],
+      "selection_id": "anomaly_transformer_wadi_p1_fixed_stride1_window_mean",
+      "selected_scoring": "stride1_window_mean",
+      "original_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "preset_sha256": "ee0d5ba07cf84de6efe7958adee34543951537f892c6c57b8c85b234548c6c9a"
+    },
+    {
+      "preset": "baselines/fusagnet/wadi.yaml",
+      "dataset": "wadi",
+      "method": "fusagnet",
+      "run_ids": [
+        "260203_190524_crisp-sweep-1",
+        "260203_201418_likely-sweep-2",
+        "260203_212452_autumn-sweep-3",
+        "260203_223453_resilient-sweep-4",
+        "260203_234451_wobbly-sweep-5"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "evaluation_results.json",
+          "sha256": "a10128104e560b1fc77dbd07f3f957c0875280f00d30b17e4ad2bf1522a82b39"
+        },
+        {
+          "kind": "selected_legacy_run_config",
+          "file": "config_used.yaml",
+          "sha256": "571aaacd656c5ea214c97b3fb6c09cbcc61667f2d89bf4e05025f9c8d07ed153"
+        }
+      ],
+      "notes": [
+        "The archived data window overrides the model window. This preset stores the effective 60."
+      ],
+      "selection_id": "wadi_fusagnet_w60_d64_a0p5_legacy",
+      "selected_scoring": "stride1 · forecast absolute error → next-point",
+      "original_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        2818902611,
+        3031544405,
+        3894207379,
+        1432196993,
+        591222738
+      ],
+      "preset_sha256": "95aa4d0c22843caade294297c9516116d7f6aabec9ca1076233baf7a624ea55b"
+    },
+    {
+      "preset": "baselines/mtscid/wadi.yaml",
+      "dataset": "wadi",
+      "method": "mtscid",
+      "run_ids": [
+        "seed-2045894864",
+        "seed-4215277752",
+        "seed-4197915570",
+        "seed-878799653",
+        "seed-802447137"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "47dedc94fef90a24d577c1382669807604854f9c5287103f73df1570d98e36ea"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "b0ff968d37c5a9c4337394a69d862c2f0fa92cf62be20a28cd9f523122631858"
+        }
+      ],
+      "notes": [
+        "The selected scoring protocol is written here. The original run also emitted a separate comparison protocol."
+      ],
+      "selection_id": "mtscid_wadi_search_w30_d16_last",
+      "selected_scoring": "stride1_last",
+      "original_seeds": [
+        2045894864,
+        4215277752,
+        4197915570,
+        878799653,
+        802447137
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        2045894864,
+        4215277752,
+        4197915570,
+        878799653,
+        802447137
+      ],
+      "preset_sha256": "8d4f335002d9dd14a10d2d4075d6b062bc8c49546daf9d277efbdd7a3ec5552d"
+    },
+    {
+      "preset": "baselines/mshtrans/wadi.yaml",
+      "dataset": "wadi",
+      "method": "mshtrans",
+      "run_ids": [
+        "run_01",
+        "run_02",
+        "run_03",
+        "run_04",
+        "run_05"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_run_metrics",
+          "file": "evaluation_results.json",
+          "sha256": "ffa77e2dd140b53a5c4c8439105b9d5c7f355f2ac731fa9b63ab19ca2ffe2c71"
+        },
+        {
+          "kind": "selected_legacy_run_config",
+          "file": "params.yaml",
+          "sha256": "ce53079838cb60a2f91ee3713555a87bbb8e10e469077db52b2f881317efb4d4"
+        }
+      ],
+      "notes": [
+        "The retained implementation uses the original fixed moving-average windows [4, 8, 12]."
+      ],
+      "selection_id": "mshtrans_wadi_current",
+      "selected_scoring": "stride1_last",
+      "original_seeds": [
+        3578648110,
+        3929194909,
+        1483278977,
+        830232855,
+        748479955
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        3578648110,
+        3929194909,
+        1483278977,
+        830232855,
+        748479955
+      ],
+      "preset_sha256": "28159b501baa8aa550e2b289824d3a5f141f01f6d79864bc535df9efae9a3388"
+    },
+    {
+      "preset": "stager/wadi.yaml",
+      "dataset": "wadi",
+      "method": "stager",
+      "run_ids": [
+        "260502_031138_tiger_wadi_seed1231018441",
+        "260502_031151_tiger_wadi_seed2539703645",
+        "260502_044237_tiger_wadi_seed4040509594",
+        "260502_060027_tiger_wadi_seed2250355385",
+        "260502_061313_tiger_wadi_seed2938106283"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_workbook_rows",
+          "cells": "wadi_raw!AH799:AT806",
+          "sha256": "1a693d9662ae8450a11d6065b3477a612e5975d395f17154cae509419c13ce53"
+        }
+      ],
+      "notes": [
+        "Table 4 and the workbook verify the reported settings and seeds. Original training YAML, checkpoint, saved metrics JSON, and the threshold constraint were unavailable. The preset uses the manuscript's global FPR constraint (0.002). The March Figure 3 run is separate."
+      ],
+      "original_seeds": [
+        1231018441,
+        2539703645,
+        4040509594,
+        2250355385,
+        2938106283
+      ],
+      "selected_scoring": "next-point squared forecast error",
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1231018441,
+        2539703645,
+        4040509594,
+        2250355385,
+        2938106283
+      ],
+      "preset_sha256": "ef7995f9548e9b2578b8edff9778dc81704c2f86ef694948d88319f44b17a501"
+    },
+    {
+      "preset": "baselines/knn/hai.yaml",
+      "dataset": "hai",
+      "method": "knn",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "666a3b185d2a263ee762eeb9c53c4b78ac582bb248b1f046d1e0f5a15970e966"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "2293d07528396f50739c61a07252f8aaf49ec7020f416a0488a6eaf13b0a9119"
+        }
+      ],
+      "notes": [],
+      "selection_id": "hai_knn_grid_0",
+      "selected_scoring": "pointwise scalar score",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "12a4dcc4234a76ffaecdbb1f19e2a6845d8bba7a92c2313bb8203b73a06e473b"
+    },
+    {
+      "preset": "baselines/ocsvm/hai.yaml",
+      "dataset": "hai",
+      "method": "ocsvm",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "0ba1560c5166a392491e53d56a8ef4a3aac5586459870f8b72e52b8d792f2760"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "530da3194f2a5ac163e8c9e393ea911bfa31800f739ca8cbf8f2413801166c64"
+        }
+      ],
+      "notes": [],
+      "selection_id": "hai_ocsvm_grid_1",
+      "selected_scoring": "pointwise scalar score",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "514f07236f2663a028e6bd80256dadd3f07636d514b9203952114b99f9a6ba52"
+    },
+    {
+      "preset": "baselines/deep_svdd/hai.yaml",
+      "dataset": "hai",
+      "method": "deep_svdd",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "66e6daea844e4b41c8495b20d13541c2d740d7baedfa4072b198bb4352a1584e"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "3159e68af5ca4e4cc152e2d929d64c7abb015bbd824dcca3ef064213003d6c8a"
+        }
+      ],
+      "notes": [],
+      "selection_id": "hai_deepsvdd_grid_4",
+      "selected_scoring": "stride1 · center distance → next-point",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "8673fa14a4758adbab734b2b1f07bb45ac354e67b3a8db3050b92762037985e2"
+    },
+    {
+      "preset": "baselines/usad/hai.yaml",
+      "dataset": "hai",
+      "method": "usad",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "4b1ef2bdde62817090ea86a2eb74e80527862c9a5e1e8a4c3c28467fbdf8da33"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "d9f177dc1abcfad0e72ac01fc831f15a23f5527ce09a1f141ab886eec37312d4"
+        }
+      ],
+      "notes": [],
+      "selection_id": "hai_usad_w15_d32_hai_search",
+      "selected_scoring": "stride1 · decoder1 window-MSE → next-point",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "a410932bc20d13f9d6acafdbb4d6f62900531c1e3450fe4e2c0c322b47f8e161"
+    },
+    {
+      "preset": "baselines/tsmixer/hai.yaml",
+      "dataset": "hai",
+      "method": "tsmixer",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "351e5061ecbfa462a5ee39e084dcf0a0aa277c0eb65aef2d2043dc5ad53fd9c7"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "34a6117fe3d68384130db3eafe4eb8e995a9c170a1945db56bab8b1e8c4747f9"
+        }
+      ],
+      "notes": [],
+      "selection_id": "hai_tsmixer_grid_16",
+      "selected_scoring": "stride1 · forecast squared error → next-point",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "8b440d3cd7460f161ff1b95b960aa34f77cbd5d1f334b7f268701cb257a4483d"
+    },
+    {
+      "preset": "baselines/anomaly_transformer/hai.yaml",
+      "dataset": "hai",
+      "method": "anomaly_transformer",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "a358463784e30d14d9e241aa1400c175d7c08269beb9d58e2e0e6376e58e3e7a"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "5a2b22e63ff83f41eea33740a18bd312540e3580b428b88594be6983b5a23fb9"
+        }
+      ],
+      "notes": [],
+      "selection_id": "anomaly_transformer_hai_current",
+      "selected_scoring": "stride1_window_mean",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "ce6b14c2bad2ec5f54d4ee831f17ce9c689536f26526674983ca52741532089c"
+    },
+    {
+      "preset": "baselines/fusagnet/hai.yaml",
+      "dataset": "hai",
+      "method": "fusagnet",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "0de6e5b708ae2502929a42d8a204dcb1060bc5505bf12ea6fca9324dd17601e6"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "b82faa4f4b362164d1650ff73e808cb4b5811684272293d670ff98ef6842cde2"
+        }
+      ],
+      "notes": [],
+      "selection_id": "hai_fusagnet_w16_d32_a0p5_hai_search",
+      "selected_scoring": "stride1 · forecast absolute error → next-point",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "fd3a136b2a684d328cc7465f271afad59782c8346b2d6ba8ba7485474dba8d3a"
+    },
+    {
+      "preset": "baselines/mtscid/hai.yaml",
+      "dataset": "hai",
+      "method": "mtscid",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "fa7d69f639dd1d36dfb29ed1e1864d7b21c6ea185e65a91204775f01ab7f7c3e"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "49d1e2b802aeb4a24a30527434c0df025baf6010cea8cdd8c3e2693ac2cf48ac"
+        }
+      ],
+      "notes": [
+        "The selected scoring protocol is written here. The original run also emitted a separate comparison protocol."
+      ],
+      "selection_id": "mtscid_hai_current",
+      "selected_scoring": "stride15_flatten",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "618974b3c9db6d755c750442fd837e644f24c8bfb76117e30fc144f99f5c3045"
+    },
+    {
+      "preset": "baselines/mshtrans/hai.yaml",
+      "dataset": "hai",
+      "method": "mshtrans",
+      "run_ids": [
+        "seed-1682640601",
+        "seed-2220732057",
+        "seed-273683254",
+        "seed-2809398139",
+        "seed-441198737"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "58b0e2615cddd286b219b23986a3f1db9699f1b056263825632096562143df3f"
+        },
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "d9682c8a36975239cb1619ee0badba51b6b68890553d4f6fa85e589ec10f9648"
+        }
+      ],
+      "notes": [],
+      "selection_id": "mshtrans_hai_current",
+      "selected_scoring": "stride1_last",
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        273683254,
+        2809398139,
+        441198737
+      ],
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "a728f0d2104e52592e0a56bfe01c7968be6537c06e96388b800f42dc6e060be3"
+    },
+    {
+      "preset": "stager/hai.yaml",
+      "dataset": "hai",
+      "method": "stager",
+      "run_ids": [
+        "seed_1682640601",
+        "seed_2220732057",
+        "seed_441198737",
+        "seed_273683254",
+        "seed_2809398139"
+      ],
+      "evidence": [
+        {
+          "kind": "selected_resolved_run_config",
+          "file": "config.json",
+          "sha256": "8843cfc61c458bcff33d4555574344fd5534836abf27183998107203f57fd879"
+        },
+        {
+          "kind": "selected_expanded_config",
+          "file": "config.yaml",
+          "sha256": "747fc807b7b0c30422b52bbdd119dace2bef4ec6b3c5d64f4d7d148019a548f5"
+        }
+      ],
+      "notes": [
+        "The stored HAI run used per-sample feature-GNN edge batching. Its schema predates the named compatibility setting."
+      ],
+      "original_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "selection_id": "aux_euclid_weight-3__aux_cls_weight-3",
+      "selected_scoring": "next-point squared forecast error",
+      "table_std_ddof": 1,
+      "preset_seeds": [
+        1682640601,
+        2220732057,
+        441198737,
+        273683254,
+        2809398139
+      ],
+      "preset_sha256": "6aba7375b717c64fbf5e49bb6ee56240f9b5ce71997cefaa3f9a6dc305629544"
+    }
+  ]
+}

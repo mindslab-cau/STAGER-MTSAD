@@ -1,0 +1,87 @@
+# Copy this file to datasets.local.yaml and edit paths if your CSVs are elsewhere.
+# Relative paths resolve from the directory containing this manifest.
+datasets:
+  swat:
+    train_path: ../data/prepared/swat/train.csv
+    test_path: ../data/prepared/swat/test.csv
+    timestamp: timestamp
+    label: label
+    schema:
+      format: prepared_csv
+      timestamp_fields:
+        - timestamp
+      label_field: label
+      normal_value: Normal
+      anomaly_value: Attack
+      expected_period_seconds: 10
+      expected_feature_count: 51
+      strip_header_whitespace: true
+      numeric_policy: strict
+      missing_value_policy: error
+      scaler: train_minmax
+      constant_policy: zero
+      clip_test: false
+      ewm:
+        enabled: true
+        alpha: 0.8
+        adjust: true
+        reset_each_split: true
+      drop_fields:
+        - label
+
+  wadi:
+    train_path: ../data/prepared/wadi/train.csv
+    test_path: ../data/prepared/wadi/test.csv
+    label: "Attack LABLE (1:No Attack, -1:Attack)"
+    schema:
+      format: prepared_csv
+      timestamp_fields:
+        - Date
+        - Time
+      label_field: "Attack LABLE (1:No Attack, -1:Attack)"
+      normal_value: 1
+      anomaly_value: -1
+      expected_period_seconds: 10
+      expected_feature_count: 123
+      strip_header_whitespace: true
+      numeric_policy: strict
+      missing_value_policy: error
+      scaler: train_minmax
+      constant_policy: zero
+      clip_test: false
+      ewm:
+        enabled: true
+        alpha: 0.8
+        adjust: true
+        reset_each_split: true
+      drop_fields:
+        - "Attack LABLE (1:No Attack, -1:Attack)"
+        - Row
+
+  hai:
+    train_path: ../data/prepared/hai/train.csv
+    test_path: ../data/prepared/hai/test.csv
+    timestamp: timestamp
+    label: Attack
+    schema:
+      format: prepared_csv
+      timestamp_fields:
+        - timestamp
+      label_field: Attack
+      normal_value: 0
+      anomaly_value: 1
+      expected_period_seconds: 10
+      expected_feature_count: 86
+      strip_header_whitespace: true
+      numeric_policy: strict
+      missing_value_policy: error
+      scaler: train_minmax
+      constant_policy: zero
+      clip_test: false
+      ewm:
+        enabled: true
+        alpha: 0.8
+        adjust: true
+        reset_each_split: true
+      drop_fields:
+        - Attack

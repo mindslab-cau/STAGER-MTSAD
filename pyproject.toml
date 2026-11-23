@@ -1,0 +1,117 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stager-mtsad"
+version = "0.1.0"
+description = "STAGER and time-series anomaly detection baselines"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy>=1.26,<3",
+]
+
+[project.scripts]
+stager-prepare-data = "triad_tsad.data_prep.prepare:main"
+stager-run = "triad_tsad.cli:main"
+stager-baseline-run = "triad_tsad.baseline_cli:main"
+stager-sweep = "triad_tsad.sweep:main"
+triad-prepare-data = "triad_tsad.data_prep.prepare:main"
+triad-run = "triad_tsad.cli:main"
+triad-baseline-run = "triad_tsad.baseline_cli:main"
+
+[project.optional-dependencies]
+yaml = ["PyYAML>=6,<7"]
+data = [
+  "numpy==1.26.4",
+  "pandas==2.1.1",
+]
+evaluation = [
+  "numpy==1.26.4",
+  "scipy==1.13.1",
+  "scikit-learn==1.3.0",
+  "matplotlib==3.9.1",
+  "tqdm==4.66.4",
+  "psutil==6.0.0",
+  "ray==2.33.0",
+  "faster-eTaPR==0.1.2",
+]
+classical = [
+  "pandas>=2.1,<3",
+  "PyYAML>=6,<7",
+  "pyod==2.0.5",
+  "numpy==1.26.4",
+  "scipy==1.13.1",
+  "scikit-learn==1.3.0",
+  "matplotlib==3.9.1",
+  "tqdm==4.66.4",
+  "psutil==6.0.0",
+  "ray==2.33.0",
+  "faster-eTaPR==0.1.2",
+]
+torch = [
+  "pandas>=2.1,<3",
+  "PyYAML>=6,<7",
+  "torch>=2.4,<3",
+]
+graph = [
+  "PyYAML>=6,<7",
+  "torch>=2.4,<3",
+  "torch-geometric>=2.6,<3",
+]
+mtscid = [
+  "pandas>=2.1,<3",
+  "PyYAML>=6,<7",
+  "torch>=2.4,<3",
+  "einops>=0.8,<1",
+]
+mshtrans = [
+  "PyYAML>=6,<7",
+  "torch>=2.4,<3",
+  "torch-geometric>=2.6,<3",
+  "einops>=0.8,<1",
+  "tqdm>=4.66,<5",
+]
+all = [
+  "pandas==2.1.1",
+  "PyYAML>=6,<7",
+  "pyod==2.0.5",
+  "torch>=2.4,<3",
+  "torch-geometric>=2.6,<3",
+  "einops>=0.8,<1",
+  "numpy==1.26.4",
+  "scipy==1.13.1",
+  "scikit-learn==1.3.0",
+  "matplotlib==3.9.1",
+  "tqdm==4.66.4",
+  "psutil==6.0.0",
+  "ray==2.33.0",
+  "faster-eTaPR==0.1.2",
+]
+test = ["pytest>=8,<9"]
+dev = [
+  "pandas==2.1.1",
+  "PyYAML>=6,<7",
+  "pyod==2.0.5",
+  "torch>=2.4,<3",
+  "torch-geometric>=2.6,<3",
+  "einops>=0.8,<1",
+  "numpy==1.26.4",
+  "scipy==1.13.1",
+  "scikit-learn==1.3.0",
+  "matplotlib==3.9.1",
+  "tqdm==4.66.4",
+  "psutil==6.0.0",
+  "ray==2.33.0",
+  "faster-eTaPR==0.1.2",
+  "pytest>=8,<9",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+pythonpath = ["src"]
+testpaths = ["tests"]

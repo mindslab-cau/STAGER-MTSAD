@@ -1,0 +1,35 @@
+# KBS_STAGER Table 6, WADI / TSMixer.
+run:
+  baseline: tsmixer
+  dataset: wadi
+  seeds: [2818902611, 3031544405, 3894207379, 1432196993, 591222738]
+dataset:
+  logical_id: wadi
+  data_included: false
+model:
+  input_dim: 123
+  input_len: 300
+  pred_len: 1
+  target_slice: null
+  norm_type: L
+  activation: relu
+  n_block: 2
+  dropout: 0.1
+  ff_dim: 16
+data:
+  window_size: 300
+  stride: 1
+  predict_size: 1
+preprocessing:
+  normalize: true
+  ewm_alpha: 0.8
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  num_epochs: 50
+  patience: 10
+  best_state_policy: deep_snapshot
+  validation_fraction: 0.2
+  optimizer: AdamW
+evaluation:
+  fpr: 0.002

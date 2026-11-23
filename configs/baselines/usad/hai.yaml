@@ -1,0 +1,30 @@
+# KBS_STAGER Table 6, HAI / USAD.
+run:
+  baseline: usad
+  dataset: hai
+  seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]
+model:
+  num_channels: 86
+  latent_dim: 32
+data:
+  window_size: 15
+  stride: 1
+preprocessing:
+  normalize: true
+  ewm_alpha: 0.8
+score:
+  definition: legacy_decoder1_window_mse
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  optimizer: AdamW
+  num_epochs: 50
+  warmup_epochs: 5
+  validation_warmup_epochs: 10
+  learning_rate_ratio_after_warmup: 0.5
+  patience: 10
+  delta_threshold: 0.0001
+  validation_fraction: 0.2
+  best_state_policy: deep_delta_snapshot
+evaluation:
+  fpr: 0.002

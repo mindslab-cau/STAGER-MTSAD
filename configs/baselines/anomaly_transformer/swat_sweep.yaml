@@ -1,0 +1,4 @@
+base_config: swat.yaml
+parameters:
+  training.association_weight:
+    values: [0.1, 0.5]

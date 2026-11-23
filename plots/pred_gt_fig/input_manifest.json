@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "description": "Inputs for reproducing the sparse-vector prediction-versus-ground-truth figures.",
+  "array_contract": {
+    "format": "NumPy .npy",
+    "shape": "A numeric time sequence that is one-dimensional after numpy.squeeze.",
+    "prediction_semantics": "Binary point-level anomaly decisions, where values greater than 0.5 are anomalous.",
+    "ground_truth_semantics": "Binary point-level anomaly labels, where values greater than 0.0 define anomaly segments.",
+    "length_semantics": "Lengths may differ between model adapters. Each model keeps its paired ground-truth sequence so the historical global alignment can be reproduced."
+  },
+  "datasets": [
+    {
+      "id": "swat",
+      "prediction_dilation_radius": 20,
+      "alignment_segment": 0
+    },
+    {
+      "id": "wadi",
+      "prediction_dilation_radius": 10,
+      "alignment_segment": 1
+    }
+  ],
+  "models": [
+    {"id": "knn", "display_name": "KNN"},
+    {"id": "ocsvm", "display_name": "OCSVM"},
+    {"id": "deepsvdd", "display_name": "DeepSVDD"},
+    {"id": "usad", "display_name": "USAD"},
+    {"id": "tsmixer", "display_name": "TSMixer"},
+    {"id": "anomalytransformer", "display_name": "AnomalyTrans"},
+    {"id": "fusagnet", "display_name": "FuSAGNet"},
+    {"id": "mtscid", "display_name": "MtsCID"},
+    {"id": "mshtrans", "display_name": "MSHTrans"},
+    {"id": "triad", "display_name": "TriAD"}
+  ],
+  "subset_models": ["tsmixer", "mshtrans", "fusagnet", "triad"],
+  "files": {
+    "swat": {
+      "knn": {"prediction": "swat/knn/prediction.npy", "ground_truth": "swat/knn/ground_truth.npy"},
+      "ocsvm": {"prediction": "swat/ocsvm/prediction.npy", "ground_truth": "swat/ocsvm/ground_truth.npy"},
+      "deepsvdd": {"prediction": "swat/deepsvdd/prediction.npy", "ground_truth": "swat/deepsvdd/ground_truth.npy"},
+      "usad": {"prediction": "swat/usad/prediction.npy", "ground_truth": "swat/usad/ground_truth.npy"},
+      "tsmixer": {"prediction": "swat/tsmixer/prediction.npy", "ground_truth": "swat/tsmixer/ground_truth.npy"},
+      "anomalytransformer": {"prediction": "swat/anomalytransformer/prediction.npy", "ground_truth": "swat/anomalytransformer/ground_truth.npy"},
+      "fusagnet": {"prediction": "swat/fusagnet/prediction.npy", "ground_truth": "swat/fusagnet/ground_truth.npy"},
+      "mtscid": {"prediction": "swat/mtscid/prediction.npy", "ground_truth": "swat/mtscid/ground_truth.npy"},
+      "mshtrans": {"prediction": "swat/mshtrans/prediction.npy", "ground_truth": "swat/mshtrans/ground_truth.npy"},
+      "triad": {"prediction": "swat/triad/prediction.npy", "ground_truth": "swat/triad/ground_truth.npy"}
+    },
+    "wadi": {
+      "knn": {"prediction": "wadi/knn/prediction.npy", "ground_truth": "wadi/knn/ground_truth.npy"},
+      "ocsvm": {"prediction": "wadi/ocsvm/prediction.npy", "ground_truth": "wadi/ocsvm/ground_truth.npy"},
+      "deepsvdd": {"prediction": "wadi/deepsvdd/prediction.npy", "ground_truth": "wadi/deepsvdd/ground_truth.npy"},
+      "usad": {"prediction": "wadi/usad/prediction.npy", "ground_truth": "wadi/usad/ground_truth.npy"},
+      "tsmixer": {"prediction": "wadi/tsmixer/prediction.npy", "ground_truth": "wadi/tsmixer/ground_truth.npy"},
+      "anomalytransformer": {"prediction": "wadi/anomalytransformer/prediction.npy", "ground_truth": "wadi/anomalytransformer/ground_truth.npy"},
+      "fusagnet": {"prediction": "wadi/fusagnet/prediction.npy", "ground_truth": "wadi/fusagnet/ground_truth.npy"},
+      "mtscid": {"prediction": "wadi/mtscid/prediction.npy", "ground_truth": "wadi/mtscid/ground_truth.npy"},
+      "mshtrans": {"prediction": "wadi/mshtrans/prediction.npy", "ground_truth": "wadi/mshtrans/ground_truth.npy"},
+      "triad": {"prediction": "wadi/triad/prediction.npy", "ground_truth": "wadi/triad/ground_truth.npy"}
+    }
+  }
+}

@@ -1,0 +1,4 @@
+base_config: swat.yaml
+parameters:
+  model.rep_dim:
+    values: [64, 128]

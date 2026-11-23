@@ -1,0 +1,34 @@
+# KBS_STAGER Table 6, WADI / USAD.
+run:
+  baseline: usad
+  dataset: wadi
+  seeds: [2818902611, 3031544405, 3894207379, 1432196993, 591222738]
+dataset:
+  logical_id: wadi
+  data_included: false
+model:
+  num_channels: 123
+  window_size: 10
+  latent_dim: 100
+data:
+  window_size: 10
+  stride: 1
+preprocessing:
+  normalize: true
+  ewm_alpha: 0.8
+score:
+  definition: legacy_decoder1_window_mse
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  optimizer: AdamW
+  num_epochs: 50
+  warmup_epochs: 5
+  validation_warmup_epochs: 10
+  learning_rate_ratio_after_warmup: 0.5
+  patience: 10
+  delta_threshold: 0.0001
+  validation_fraction: 0.2
+  best_state_policy: deep_delta_snapshot
+evaluation:
+  fpr: 0.002

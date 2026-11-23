@@ -1,0 +1,24 @@
+# KBS_STAGER Table 6, SWaT / MSHTrans.
+run:
+  baseline: mshtrans
+  dataset: swat
+  seeds: [3314560584, 4063012538, 2971554668, 3358357434, 3533973654]
+model:
+  window_size: 100
+  pool_sizes: [2, 2]
+  hyperedge_counts: [50, 30, 20]
+  head_count: 3
+  inner_size: 5
+  d_model: 64
+  topk: 5
+  update_rate: 0.3
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.0001
+  patience: 10
+  validation_fraction: 0.2
+  num_workers: 1
+train_stride: 10
+test_stride: 1
+false_positive_rate: 0.002

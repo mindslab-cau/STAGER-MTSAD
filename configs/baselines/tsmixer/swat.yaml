@@ -1,0 +1,35 @@
+# KBS_STAGER Table 6, SWaT / TSMixer.
+run:
+  baseline: tsmixer
+  dataset: swat
+  seeds: [3161534991, 579641255, 2485349240, 931421446, 936013479]
+dataset:
+  logical_id: swat
+  data_included: false
+model:
+  input_dim: 51
+  input_len: 60
+  pred_len: 1
+  target_slice: null
+  norm_type: L
+  activation: relu
+  n_block: 2
+  dropout: 0.2
+  ff_dim: 32
+data:
+  window_size: 60
+  stride: 1
+  predict_size: 1
+preprocessing:
+  normalize: true
+  ewm_alpha: 0.8
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  num_epochs: 50
+  patience: 10
+  best_state_policy: deep_snapshot
+  validation_fraction: 0.2
+  optimizer: AdamW
+evaluation:
+  fpr: 0.002

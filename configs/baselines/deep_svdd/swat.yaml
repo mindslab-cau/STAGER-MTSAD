@@ -1,0 +1,30 @@
+# KBS_STAGER Table 6, SWaT / DeepSVDD.
+run:
+  baseline: deep_svdd
+  dataset: swat
+  seeds: [42, 43, 44, 45, 46]
+model:
+  objective: soft-boundary
+  nu: 0.1
+  rep_dim: 128
+data:
+  window_size: 60
+  stride: 1
+  predict_size: 1
+preprocessing:
+  normalize: true
+  ewm_alpha: 0.8
+pretraining:
+  enabled: true
+  learning_rate: 0.0001
+  num_epochs: 50
+training:
+  optimizer: AdamW
+  learning_rate: 0.0001
+  num_epochs: 50
+  learning_rate_milestones: []
+  batch_size: 32
+  weight_decay: 1.0e-05
+  warm_up_epochs: 10
+evaluation:
+  fpr: 0.002

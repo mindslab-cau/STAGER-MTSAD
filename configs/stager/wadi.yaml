@@ -1,0 +1,39 @@
+# KBS_STAGER Table 6, WADI / STAGER.
+# See provenance for the workbook-backed seeds and the reconstructed settings.
+model:
+  name: STAGER
+stager:
+  window_size: 360
+  stride: 1
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.0001
+  early_stopping_patience: 10
+  validation_fraction: 0.2
+  adj_func: sigmoid
+  gnn_type: gat
+  gnn_layers: 1
+  gnn_heads: 1
+  gnn_dropout: 0.1
+  node_dim: 16
+  conditioning_type: film
+  film_pre_norm_type: null
+  film_post_norm_type: ln
+  feature_encoder_type: multi_scale
+  ms_windows: [5, 10, 20]
+  tag_mixing: true
+  aux_target: global
+  temporal_type: dag
+  temporal_pool: mean
+  aux_euclid_weight: 0.2
+  aux_cos_weight: 0.0
+  aux_ortho_weight: 0.0
+  aux_cls_weight: 0.3
+  best_state_policy: snapshot
+  evaluation_fpr: 0.002
+  tgnn_layers: 2
+dataset:
+  logical_id: wadi
+  prepared_arrays_required: true
+  bundled: false
+seeds: [1231018441, 2539703645, 4040509594, 2250355385, 2938106283]

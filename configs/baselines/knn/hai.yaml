@@ -1,0 +1,20 @@
+# KBS_STAGER Table 6, HAI / KNN.
+run:
+  baseline: knn
+  dataset: hai
+  seeds: [1682640601, 2220732057, 441198737, 273683254, 2809398139]
+model: knn
+model_params:
+  n_neighbors: 5
+  method: largest
+  contamination: 0.001
+  n_jobs: 6
+preprocessing:
+  normalization: train_minmax
+  ewm_alpha: 0.8
+  window_size: 1
+evaluation:
+  protocol: evaluate_ensemble_best_modified
+  fpr: 0.002
+  label_aware: true
+  require_etapr: true

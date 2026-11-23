@@ -1,0 +1,4 @@
+base_config: swat.yaml
+parameters:
+  model_params.nu:
+    values: [0.05, 0.1]

@@ -1,0 +1,4 @@
+base_config: swat.yaml
+parameters:
+  model.alpha:
+    values: [0.1, 0.3]

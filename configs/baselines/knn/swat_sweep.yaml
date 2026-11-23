@@ -1,0 +1,4 @@
+base_config: swat.yaml
+parameters:
+  model_params.n_neighbors:
+    values: [3, 5, 7]

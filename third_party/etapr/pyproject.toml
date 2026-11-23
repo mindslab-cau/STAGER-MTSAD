@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eTaPR"
+version = "22.6.1.post1"
+description = "Enhanced Precision and Recall for time-series anomaly evaluation"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE.txt" }
+authors = [
+  { name = "Won-Seok Hwang" },
+]
+dependencies = [
+  "numpy",
+  "pandas",
+  "opencv-python",
+]
+keywords = ["accuracy metric", "time-series", "precision", "recall"]
+
+[tool.setuptools]
+packages = ["eTaPR_pkg", "eTaPR_pkg.DataManage"]

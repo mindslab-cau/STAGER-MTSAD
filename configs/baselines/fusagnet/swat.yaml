@@ -1,0 +1,47 @@
+# KBS_STAGER Table 6, SWaT / FuSAGNet.
+run:
+  baseline: fusagnet
+  dataset: swat
+  seeds: [3809632705, 2367899585, 1927285282, 1901393921, 2995911408]
+false_positive_rate: 0.002
+layout:
+  feature_order: [P1_FIT101, P1_LIT101, P1_MV101, P1_P101, P1_P102, P2_AIT201, P2_AIT202, P2_AIT203, P2_FIT201,
+    P2_MV201, P2_P201, P2_P202, P2_P203, P2_P204, P2_P205, P2_P206, P3_DPIT301, P3_FIT301, P3_LIT301, P3_MV301,
+    P3_MV302, P3_MV303, P3_MV304, P3_P301, P3_P302, P4_AIT401, P4_AIT402, P4_FIT401, P4_LIT401, P4_P401, P4_P402,
+    P4_P403, P4_P404, P4_UV401, P5_AIT501, P5_AIT502, P5_AIT503, P5_AIT504, P5_FIT501, P5_FIT502, P5_FIT503, P5_FIT504,
+    P5_P501, P5_P502, P5_PIT501, P5_PIT502, P5_PIT503, P6_FIT601, P6_P601, P6_P602, P6_P603]
+  process_groups:
+    - name: P1
+      feature_indices: [0, 1, 2, 3, 4]
+    - name: P2
+      feature_indices: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    - name: P3
+      feature_indices: [16, 17, 18, 19, 20, 21, 22, 23, 24]
+    - name: P4
+      feature_indices: [25, 26, 27, 28, 29, 30, 31, 32, 33]
+    - name: P5
+      feature_indices: [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
+    - name: P6
+      feature_indices: [47, 48, 49, 50]
+model:
+  window_size: 16
+  embedding_dim: 16
+  output_hidden_dim: 16
+  output_layers: 1
+  topk: 10
+  latent_size: 16
+  autoencoder_layers: 2
+  alpha: 0.1
+  beta: 1.0
+  process_rnn_layers: 3
+  dropout: 0.2
+  edge_set_count: 1
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  epochs: 50
+  patience: 10
+  validation_fraction: 0.2
+  noise_level: 0.1
+  optimizer: adamw
+  deep_snapshot_best_state: true
