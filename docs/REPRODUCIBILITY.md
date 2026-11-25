@@ -16,13 +16,13 @@ The command should print `1.0`. Use the same `CUDA_VISIBLE_DEVICES` value
 below. The neural launchers select the visible CUDA device by default.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.cli \
+CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.cli \
   --config configs/stager/swat.yaml \
   --dataset-manifest configs/datasets.local.yaml \
   --output-dir outputs/checks/swat-stager \
   --seed 3974762829 --max-epochs 1
 
-CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.baseline_cli --baseline tsmixer \
+CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.baseline_cli --baseline tsmixer \
   --config configs/baselines/tsmixer/swat.yaml \
   --dataset-manifest configs/datasets.local.yaml \
   --output-dir outputs/checks/swat-tsmixer \
@@ -31,7 +31,8 @@ CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.baseline_cli --baseline tsmixer \
 
 Each command checks data loading, one epoch of training, scoring, and result
 writing. It should write `summary.json` and one seed directory containing
-`metrics.json`. STAGER also writes `best_model.pt`.
+`metrics.json`. STAGER evaluates the last completed epoch and saves its
+weights as `last_epoch_model.pt`.
 
 ## Run the included models
 
@@ -40,13 +41,13 @@ five seeds per dataset and model. Use a fresh output root for each run.
 
 ```bash
 for dataset in swat wadi hai; do
-  CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.cli \
+  CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.cli \
     --config "configs/stager/$dataset.yaml" \
     --dataset-manifest configs/datasets.local.yaml \
     --output-dir "outputs/paper/table6-full/$dataset/stager"
 
   for method in knn ocsvm deep_svdd usad tsmixer anomaly_transformer fusagnet mtscid mshtrans; do
-    CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.baseline_cli --baseline "$method" \
+    CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.baseline_cli --baseline "$method" \
       --config "configs/baselines/$method/$dataset.yaml" \
       --dataset-manifest configs/datasets.local.yaml \
       --output-dir "outputs/paper/table6-full/$dataset/$method"
@@ -56,8 +57,3 @@ done
 
 The kNN and OCSVM estimators run on CPU. Each model and dataset directory
 contains `summary.json` and per-seed `metrics.json` files.
-
-The [Table 6 provenance](../configs/table6_provenance.json) records the
-original or replay seeds, scoring protocols, and available run settings
-for each preset. For the paper's standard deviations, use the per-seed
-metrics and the row's `table_std_ddof` value.

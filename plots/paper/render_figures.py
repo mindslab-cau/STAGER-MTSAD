@@ -24,7 +24,7 @@ MASK_MODELS = (
     ("knn", "KNN"), ("ocsvm", "OCSVM"), ("deepsvdd", "DeepSVDD"),
     ("usad", "USAD"), ("tsmixer", "TSMixer"),
     ("anomaly_transformer", "AnomalyTrans"), ("fusagnet", "FuSAGNet"),
-    ("mtscid", "MtsCID"), ("mshtrans", "MSHTrans"), ("triad", "STAGER"),
+    ("mtscid", "MtsCID"), ("mshtrans", "MSHTrans"), ("stager", "STAGER"),
 )
 METRICS = (("f1", "F1"), ("pa_f1", "PA-F1"), ("eTaf1", "eTaF1"))
 SENSITIVITY_STYLE = (("#0072B2", "o"), ("#D55E00", "s"), ("#009E73", "^"))
@@ -109,8 +109,20 @@ def render_predictions(output, path):
             display_gt = dilate(truth, radius)
             figure = plt.figure(figsize=(width / 72, height / 72))
             for row, (model, label) in enumerate(MASK_MODELS):
-                observed = read_binary(archive, f"{key}_{model}_observed", len(truth))
-                predicted = read_binary(archive, f"{key}_{model}_prediction", len(truth)) & observed
+                mask_prefix = f"{key}_{model}"
+                if (
+                    model == "stager"
+                    and f"{mask_prefix}_observed" not in archive
+                    and f"{mask_prefix}_prediction" not in archive
+                ):
+                    legacy_prefix = f"{key}_triad"
+                    if (
+                        f"{legacy_prefix}_observed" in archive
+                        and f"{legacy_prefix}_prediction" in archive
+                    ):
+                        mask_prefix = legacy_prefix
+                observed = read_binary(archive, f"{mask_prefix}_observed", len(truth))
+                predicted = read_binary(archive, f"{mask_prefix}_prediction", len(truth)) & observed
                 tp, fp = predicted & truth, predicted & ~truth
                 display_tp, display_fp = dilate(tp, radius), dilate(fp, fp_radius)
                 display_tp[fp] = False

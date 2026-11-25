@@ -30,7 +30,6 @@ stager:
   aux_cos_weight: 0.0
   aux_ortho_weight: 0.0
   aux_cls_weight: 0.2
-  best_state_policy: snapshot
   evaluation_fpr: 0.002
   aux_classifier_dropout: 0.0
   aux_classifier_hidden: null

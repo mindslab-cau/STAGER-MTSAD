@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 
 
-_MPL_CACHE = tempfile.TemporaryDirectory(prefix="triad-matplotlib-")
+_MPL_CACHE = tempfile.TemporaryDirectory(prefix="stager-matplotlib-")
 os.environ["MPLCONFIGDIR"] = _MPL_CACHE.name
 
 import matplotlib as mpl
@@ -83,7 +83,7 @@ SAVE_BBOX = "tight"
 SINGLE_PAD_INCHES = 0.02
 COMBINED_PAD_INCHES = 0.0
 
-OUR_METHOD = "TriAD"
+OUR_METHOD = "STAGER"
 
 DEFAULT_MARKER_SIZE = 90
 MODEL_MARKER_SIZE_MULTIPLIERS = {
@@ -129,6 +129,7 @@ MODEL_NAME_MAP = {
     "MtsCID": "MtsCID",
     "MSHTrans": "MSHTrans",
     "MSHTRANS": "MSHTrans",
+    "TriAD": OUR_METHOD,
     OUR_METHOD: OUR_METHOD,
 }
 

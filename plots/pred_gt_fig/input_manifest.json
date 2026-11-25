@@ -30,9 +30,9 @@
     {"id": "fusagnet", "display_name": "FuSAGNet"},
     {"id": "mtscid", "display_name": "MtsCID"},
     {"id": "mshtrans", "display_name": "MSHTrans"},
-    {"id": "triad", "display_name": "TriAD"}
+    {"id": "stager", "display_name": "STAGER"}
   ],
-  "subset_models": ["tsmixer", "mshtrans", "fusagnet", "triad"],
+  "subset_models": ["tsmixer", "mshtrans", "fusagnet", "stager"],
   "files": {
     "swat": {
       "knn": {"prediction": "swat/knn/prediction.npy", "ground_truth": "swat/knn/ground_truth.npy"},
@@ -44,7 +44,7 @@
       "fusagnet": {"prediction": "swat/fusagnet/prediction.npy", "ground_truth": "swat/fusagnet/ground_truth.npy"},
       "mtscid": {"prediction": "swat/mtscid/prediction.npy", "ground_truth": "swat/mtscid/ground_truth.npy"},
       "mshtrans": {"prediction": "swat/mshtrans/prediction.npy", "ground_truth": "swat/mshtrans/ground_truth.npy"},
-      "triad": {"prediction": "swat/triad/prediction.npy", "ground_truth": "swat/triad/ground_truth.npy"}
+      "stager": {"prediction": "swat/stager/prediction.npy", "ground_truth": "swat/stager/ground_truth.npy"}
     },
     "wadi": {
       "knn": {"prediction": "wadi/knn/prediction.npy", "ground_truth": "wadi/knn/ground_truth.npy"},
@@ -56,7 +56,7 @@
       "fusagnet": {"prediction": "wadi/fusagnet/prediction.npy", "ground_truth": "wadi/fusagnet/ground_truth.npy"},
       "mtscid": {"prediction": "wadi/mtscid/prediction.npy", "ground_truth": "wadi/mtscid/ground_truth.npy"},
       "mshtrans": {"prediction": "wadi/mshtrans/prediction.npy", "ground_truth": "wadi/mshtrans/ground_truth.npy"},
-      "triad": {"prediction": "wadi/triad/prediction.npy", "ground_truth": "wadi/triad/ground_truth.npy"}
+      "stager": {"prediction": "wadi/stager/prediction.npy", "ground_truth": "wadi/stager/ground_truth.npy"}
     }
   }
 }

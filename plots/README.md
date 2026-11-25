@@ -21,8 +21,9 @@ The renderer uses DejaVu Serif when Times New Roman is unavailable.
 
 ## Figure 3 data
 
-Place a NumPy `.npz` archive of test labels, scored rows, and predictions
-aligned to the original test CSV at `plots/paper/inputs/selected_raw_masks.npz`.
+Build a NumPy `.npz` archive from your own runs and align the test labels,
+scored rows, and predictions to the prepared test CSV. Place the archive
+at `plots/paper/inputs/selected_raw_masks.npz`.
 
 ```bash
 python plots/paper/render_figures.py --figure 3
@@ -35,7 +36,7 @@ Use `{dataset}_gt` for labels and `{dataset}_{model}_observed` and
 `{dataset}_{model}_prediction` for scored rows and pointwise predictions.
 The dataset IDs are `swat`, `wadi`, and `hai`. The model IDs are `knn`,
 `ocsvm`, `deepsvdd`, `usad`, `tsmixer`, `anomaly_transformer`, `fusagnet`,
-`mtscid`, `mshtrans`, and `triad` for STAGER.
+`mtscid`, `mshtrans`, and `stager`.
 
 For the paper illustration each baseline shows the run with the most
 separate false-positive intervals among runs at or below its median recall.

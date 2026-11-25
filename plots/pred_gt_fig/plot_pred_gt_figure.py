@@ -23,7 +23,7 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 
-LOG = logging.getLogger("triad_pred_gt_plot")
+LOG = logging.getLogger("stager_pred_gt_plot")
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_MANIFEST = SCRIPT_DIR / "input_manifest.json"
 DEFAULT_INPUT_ROOT = SCRIPT_DIR / "inputs"
@@ -215,13 +215,27 @@ def build_tasks(manifest: PlotManifest, input_root: Path) -> dict[str, list[Plot
                 raise ValueError(
                     f"missing files entry for {dataset.dataset_id}/{model.model_id}"
                 )
+            prediction_path = _resolve_input_path(input_root, pair.get("prediction"))
+            gt_path = _resolve_input_path(input_root, pair.get("ground_truth"))
+            model_dir = input_root / dataset.dataset_id / "stager"
+            if (
+                model.model_id == "stager"
+                and prediction_path.parent == gt_path.parent == model_dir
+                and not prediction_path.exists()
+                and not gt_path.exists()
+            ):
+                legacy_dir = model_dir.with_name("triad")
+                legacy_prediction = legacy_dir / prediction_path.name
+                legacy_gt = legacy_dir / gt_path.name
+                if legacy_prediction.is_file() and legacy_gt.is_file():
+                    prediction_path, gt_path = legacy_prediction, legacy_gt
             tasks.append(
                 PlotTask(
                     model=model.model_id,
                     display_name=model.display_name,
                     dataset=dataset.dataset_id,
-                    prediction_path=_resolve_input_path(input_root, pair.get("prediction")),
-                    gt_path=_resolve_input_path(input_root, pair.get("ground_truth")),
+                    prediction_path=prediction_path,
+                    gt_path=gt_path,
                 )
             )
         tasks_by_dataset[dataset.dataset_id] = tasks

@@ -13,13 +13,10 @@ dependencies = [
 ]
 
 [project.scripts]
-stager-prepare-data = "triad_tsad.data_prep.prepare:main"
-stager-run = "triad_tsad.cli:main"
-stager-baseline-run = "triad_tsad.baseline_cli:main"
-stager-sweep = "triad_tsad.sweep:main"
-triad-prepare-data = "triad_tsad.data_prep.prepare:main"
-triad-run = "triad_tsad.cli:main"
-triad-baseline-run = "triad_tsad.baseline_cli:main"
+stager-prepare-data = "stager_mtsad.data_prep.prepare:main"
+stager-run = "stager_mtsad.cli:main"
+stager-baseline-run = "stager_mtsad.baseline_cli:main"
+stager-sweep = "stager_mtsad.sweep:main"
 
 [project.optional-dependencies]
 yaml = ["PyYAML>=6,<7"]

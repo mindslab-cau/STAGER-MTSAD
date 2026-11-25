@@ -1,5 +1,4 @@
 # KBS_STAGER Table 6, WADI / STAGER.
-# See provenance for the workbook-backed seeds and the reconstructed settings.
 model:
   name: STAGER
 stager:
@@ -29,7 +28,6 @@ stager:
   aux_cos_weight: 0.0
   aux_ortho_weight: 0.0
   aux_cls_weight: 0.3
-  best_state_policy: snapshot
   evaluation_fpr: 0.002
   tgnn_layers: 2
 dataset:

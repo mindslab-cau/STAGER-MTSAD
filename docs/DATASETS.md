@@ -45,7 +45,7 @@ and trailer rows with empty row, date, and time fields, parses timestamps,
 and fills remaining sensor gaps with the column mean within each split.
 It drops the first 21,600 training rows before grouping both splits into
 10-second timestamp bins. Each bin uses the sensor medians and label mode.
-A tie resolves to `-1` (attack), and `1` denotes normal.
+The raw labels use `-1` for attack and `1` for normal.
 
 The paper used the cleaned test export `WADI_attackdataLABLE_fix.csv`.
 Pass that file as `--attack-raw` if available. Equivalence of the prepared
@@ -65,17 +65,17 @@ Download `train1.csv` through `train6.csv` and `test1.csv` through
 source repository. The preprocessor concatenates recordings in numeric order
 within each split. It groups consecutive blocks of ten rows starting at the
 first row, keeping the first timestamp, the sensor medians, and the label
-mode. A tie resolves to `0` (normal). It discards any incomplete final
-block. The resulting data has a nominal 10-second period.
-[HAI preprocessor](../src/triad_tsad/data_prep/hai.py)
+mode. It discards any incomplete final block. The resulting data has a
+nominal 10-second period.
+[HAI preprocessor](../src/stager_mtsad/data_prep/hai.py)
 
 ## Preparing datasets
 
 Run the preprocessor and register the CSV paths using the
 [README commands](../README.md#2-prepare-the-datasets). It writes
 `train.csv`, `test.csv`, `dataset_manifest.json`, and `preparation.json`
-for each dataset. [Preprocessor source](../src/triad_tsad/data_prep/prepare.py)
+for each dataset. [Preprocessor source](../src/stager_mtsad/data_prep/prepare.py)
 
 When building forecasting windows, the STAGER CSV loader retains a window
 of length `W` if its target timestamp is `W × 10` seconds after the first
-input timestamp. [Window construction](../src/triad_tsad/utils/data.py)
+input timestamp. [Window construction](../src/stager_mtsad/utils/data.py)

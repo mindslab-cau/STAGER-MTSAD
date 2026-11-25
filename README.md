@@ -22,6 +22,9 @@ conda env create --file environment.yml
 conda activate stager
 ```
 
+If you already have a `stager` environment, run `python -m pip install --no-deps -e .`
+from this checkout to refresh the editable installation and console commands.
+
 ## 2. Prepare the datasets
 
 Request SWaT and WADI from SUTD iTrust and get the HAI 22.04 recordings
@@ -77,12 +80,12 @@ each preset. To change datasets, select `swat`, `wadi`, or `hai` in the preset
 path and choose a fresh output directory.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.cli \
+CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.cli \
   --config configs/stager/swat.yaml \
   --dataset-manifest configs/datasets.local.yaml \
   --output-dir outputs/stager/swat
 
-CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.baseline_cli --baseline tsmixer \
+CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.baseline_cli --baseline tsmixer \
   --config configs/baselines/tsmixer/swat.yaml \
   --dataset-manifest configs/datasets.local.yaml \
   --output-dir outputs/tsmixer/swat
@@ -109,12 +112,12 @@ Use the same commands with the `swat_sweep.yaml` in each runnable model's config
 directory and a fresh output directory.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.cli \
+CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.cli \
   --config configs/stager/swat_sweep.yaml \
   --dataset-manifest configs/datasets.local.yaml \
   --output-dir outputs/stager/swat_sweep
 
-CUDA_VISIBLE_DEVICES=0 python -m triad_tsad.baseline_cli --baseline tsmixer \
+CUDA_VISIBLE_DEVICES=0 python -m stager_mtsad.baseline_cli --baseline tsmixer \
   --config configs/baselines/tsmixer/swat_sweep.yaml \
   --dataset-manifest configs/datasets.local.yaml \
   --output-dir outputs/tsmixer/swat_sweep
